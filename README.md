@@ -5,7 +5,8 @@
 [![Coverage Status](https://coveralls.io/repos/github/Ip-umd/The_Warehouse_Helper/badge.svg?branch=iteration1)](https://coveralls.io/github/Ip-umd/The_Warehouse_Helper?branch=iteration1)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 
-##Authors
+## Authors
+
 Ishan Patel
  - Robotics student at University of Maryland
  - Areas of interests are perception and planning of self-driving vehicles.
@@ -18,9 +19,18 @@ Sri Manika Makam
  - Robotics student at University of Maryland
  - Areas of interests are path-planning of autonomous vehicles.
 
-##License 
-BSD 3-Clause License
+## Google Sheet for AIP:
 
+https://docs.google.com/spreadsheets/d/1t4cP0wDVoSsd_CHPAsWeQVUyKAmTfhGT0WIE1Eti5zc/edit?ts=5dd5b5d7#gid=1860513107
+
+## Sprint Planning Notes:
+
+https://docs.google.com/document/d/1rJrAD-c7H2RfS4iTaWQ11ydM7skeF1xUm2HMC1adbkw/edit?usp=sharing
+
+## License 
+
+BSD 3-Clause License
+```
 Copyright (c) 2019, Ishan Patel, Nakul Patel, Sri Manika Makam
 All rights reserved.
 
@@ -48,3 +58,4 @@ SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
 CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+```
