@@ -27,6 +27,57 @@ https://docs.google.com/spreadsheets/d/1t4cP0wDVoSsd_CHPAsWeQVUyKAmTfhGT0WIE1Eti
 
 https://docs.google.com/document/d/1rJrAD-c7H2RfS4iTaWQ11ydM7skeF1xUm2HMC1adbkw/edit?usp=sharing
 
+## Standard install via command-line
+```
+git clone https://github.com/Ip-umd/The_Warehouse_Helper.git
+cd <path to repository>
+mkdir build
+cd build
+cmake ..
+make
+Run tests: ./test/cpp-test
+Run program: ./app/shell-app
+```
+
+## Working with Eclipse IDE
+
+## Installation
+
+In your Eclipse workspace directory (or create a new one), checkout the repo (and submodules)
+
+```
+mkdir -p ~/workspace
+cd ~/workspace
+git clone https://github.com/Ip-umd/The_Warehouse_Helper.git
+```
+
+In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of The_Warehouse_Helper
+
+```
+cd ~/workspace
+mkdir -p The_Warehouse_Helper_Eclipse
+cd The_Warehouse_Helper_Eclipse
+cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../The_Warehouse_Helper/
+```
+
+## Import
+
+Open Eclipse, go to File -> Import -> General -> Existing Projects into Workspace -> Select "The_Warehouse_Helper_Eclipse" directory created previously as root directory -> Finish
+
+## Edit
+
+Source files may be edited under the "[Source Directory]" label in the Project Explorer.
+
+## Build
+
+To build the project, in Eclipse, unfold The_Warehouse_Helper_Eclipse project in Project Explorer, unfold Build Targets, double click on "all" to build all projects.
+
+## Run
+
+In Eclipse, right click on the The_Warehouse_Helper_Eclipse in Project Explorer, select Run As -> Local C/C++ Application
+
+Choose the binaries to run (e.g. shell-app, cpp-test for unit testing)
+
 ## License 
 
 BSD 3-Clause License
