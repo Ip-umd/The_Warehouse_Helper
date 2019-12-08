@@ -39,7 +39,6 @@
  *  Defines the member variables and functions in ObstacleMap class.
  */
 
-#include <eigen3/Eigen/Core>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -47,11 +46,19 @@
 
 class ObstacleMap {
  private:
-  int l;
-  int w;
   double robotRadius;
 
  public:
+  /**
+   * lenght of map
+   */
+  int l;
+  
+  /**
+   * width of map
+   */
+  int w;
+  
   /**
    * @brief Default constructor of ObstacleMap class
    * @param none

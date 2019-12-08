@@ -38,14 +38,12 @@
  *  @brief     Implementation of ObstacleMap class
  */
 
-#include "ObstacleMap.hpp"
-#include <eigen3/Eigen/Core>
-#include <eigen3/Eigen/Dense>
 #include <iostream>
 #include <string>
 #include <vector>
 #include <opencv2/opencv.hpp>
-//#include <boost/numpy.hpp>
+#include "ObstacleMap.hpp"
+
 
 ObstacleMap::ObstacleMap() {
 }
