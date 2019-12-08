@@ -1,12 +1,14 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(The_Warehouse_Helper)
-
 ## Compile as C++11, supported in ROS Kinetic and newer
-# add_compile_options(-std=c++11)
+add_compile_options(-std=c++11)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
+
+find_package(OpenCV 3.3.1 REQUIRED)
+
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   move_base_msgs
@@ -16,14 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
 )
 
-## System dependencies are found with CMake's conventions
-# find_package(Boost REQUIRED COMPONENTS system)
 
-
-## Uncomment this if the package has a setup.py. This macro ensures
-## modules and global scripts declared therein get installed
-## See http://ros.org/doc/api/catkin/html/user_guide/setup_dot_py.html
-# catkin_python_setup()
 
 ################################################
 ## Declare ROS messages, services and actions ##
@@ -106,7 +101,7 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-#  INCLUDE_DIRS include
+#   INCLUDE_DIRS include
 #  LIBRARIES The_Warehouse_Helper
 #  CATKIN_DEPENDS geometry_msgs move_base_msgs roscpp rospy sensor_msgs std_msgs
 #  DEPENDS system_lib
@@ -118,15 +113,16 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
+include_directories(${OpenCV_INCLUDE_DIRS})
 include_directories(
-# include
+  include
   ${catkin_INCLUDE_DIRS}
 )
 
 ## Declare a C++ library
-# add_library(${PROJECT_NAME}
-#   src/${PROJECT_NAME}/The_Warehouse_Helper.cpp
-# )
+#add_library(${The_Warehouse_Helper}
+#   src/${The_Warehouse_Helper}/The_Warehouse_Helper.cpp
+#)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -200,10 +196,47 @@ include_directories(
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_The_Warehouse_Helper.cpp)
-# if(TARGET ${PROJECT_NAME}-test)
-#   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
-# endif()
+#catkin_add_gtest(${The_Warehouse_Helper}-test test/main.cpp test/ObstacleMapTest.cpp test/NodeParamTest.cpp)
+#if(TARGET ${The_Warehouse_Helper}-test)
+#   target_link_libraries(${The_Warehouse_Helper}-test ${The_Warehouse_Helper})
+#endif()
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+add_executable(warehouseHelper src/main.cpp src/NodeParam.cpp src/AStar.cpp src/ObstacleMap.cpp)
+
+target_link_libraries(warehouseHelper
+  ${catkin_LIBRARIES}
+)
+
+
+include_directories(${OpenCV_INCLUDE_DIRS})
+target_link_libraries(warehouseHelper ${OpenCV_LIBRARIES})
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -g -O0 --coverage")
+  add_rostest_gtest(
+  warehouseHelperTest
+  test/warehouseHelperTest.launch  
+  test/main.cpp
+  test/NodeParamTest.cpp
+  test/ObstacleMapTest.cpp
+  
+  src/NodeParam.cpp
+  src/ObstacleMap.cpp
+  )
+
+  target_link_libraries(
+  warehouseHelperTest
+  ${catkin_LIBRARIES}
+  ${OpenCV_LIBS}
+  )
+  add_dependencies(
+  warehouseHelper
+  warehouseHelperTest
+  ${catkin_EXPORTED_TARGETS}
+  )
+endif()
+
+
