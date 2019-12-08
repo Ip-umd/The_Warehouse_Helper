@@ -52,8 +52,6 @@
  */
 class AStar {
  private:
-  ObstacleMap map;
-
   NodeParam node;
 
   double rpm1;
@@ -73,13 +71,13 @@ class AStar {
 
   /**
    * @brief Constructor of AStar class
-   * @param RPM1 of type double
-   * @param RPM2 of type double
+   * @param rpm1Val of type double
+   * @param rpm2Val of type double
    * @param dT of type double
    * @return none
    * Initializes rpm1, rpm2 and dt to the values passed to the constructor
    */
-  AStar(double RPM1, double RPM2, double dT);
+  AStar(double rpm1Val, double rpm2Val, double dtVal);
 
   /**
    * @brief Destructor of AStar class
@@ -91,11 +89,11 @@ class AStar {
 
   /**
    * @brief backtrack - Function which implements the backtracking
-   * @param backList - vector of vector of double
-   * @return vector of vector of double
+   * @param backList - datatype to store the backtrack list of nodes
+   * @return vector of vector of vector of double
    */
-  std::vector<std::vector<double>> backTrack(
-      std::vector<std::vector<double>> backList);
+  std::vector<std::vector<std::vector<double>>> backTrack(
+      std::vector<std::vector<std::vector<double>>> backList);
 
   /**
    * @brief motionModel - Function which describes the motion of robot
@@ -110,8 +108,8 @@ class AStar {
    * @param goalPoint - vector of double
    * @return vector of vector of double
    */
-  std::vector<std::vector<double>> aStar(std::vector<double> startPoint,
-                                         std::vector<double> goalPoint);
+  std::vector<std::vector<std::vector<double>>>  aStar(
+        std::vector<double> startPoint, std::vector<double> goalPoint);
 };
 
 

@@ -57,15 +57,15 @@ AStar::AStar(double RPM1, double RPM2, double dT) {
 AStar::~AStar() {
 }
 
-std::vector<std::vector<double>> AStar::backTrack(
-    std::vector<std::vector<double>> backList) {
+std::vector<std::vector<std::vector<double>>>  AStar::backTrack(
+    std::vector<std::vector<std::vector<double>>>  backList) {
 }
 
 std::vector<std::vector<double>> AStar::motionModel() {
 
 }
 
-std::vector<std::vector<double>> AStar::aStar(std::vector<double> startPoint,
+std::vector<std::vector<std::vector<double>>>  AStar::aStar(std::vector<double> startPoint,
                                               std::vector<double> goalPoint) {
 }
 
