@@ -89,10 +89,10 @@ void NodeParam::setTheta(double th) {
   theta = th;
 }
 
-double NodeParam::getDtheta() {
+double NodeParam::getDTheta() {
 }
 
-void NodeParam::setDtheta(double dth) {
+void NodeParam::setDTheta(double dth) {
 }
 
 double NodeParam::getDx() {

@@ -169,14 +169,14 @@ class NodeParam {
    * @return double
    * Returns the dtheta upon request
    */
-  double getDtheta();
+  double getDTheta();
 
   /**
-   * @brief setDtheta function
+   * @brief setDTheta function
    * @param dth - double
    * @return none
    */
-  void setDtheta(double dth);
+  void setDTheta(double dth);
 
   /**
    * @brief getDx function
