@@ -1,0 +1,4 @@
+<launch>
+  <node pkg="The_Warehouse_Helper" type="warehouseHelper" name="warehouseHelper" />
+  <test pkg="The_Warehouse_Helper" test-name="warehouseHelperTest" type="warehouseHelperTest" />
+</launch>
