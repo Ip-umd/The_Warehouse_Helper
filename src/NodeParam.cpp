@@ -47,6 +47,13 @@
 #include "NodeParam.hpp"
 
 NodeParam::NodeParam() {
+  gCost = 0.0;
+  hCost = 0.0;
+  totalCost = 0.0;
+  theta = 0.0;
+  dtheta = 0.0;
+  dx = 0.0;
+  dy = 0.0;
 }
 
 NodeParam::~NodeParam() {

@@ -47,7 +47,6 @@
 
 #include <opencv2/opencv.hpp>
 
-
 ObstacleMap::ObstacleMap() {
   /// Initializing the member variables to zero
   l = 0;
@@ -81,7 +80,7 @@ bool ObstacleMap::createRectangles(int x, int y) {
   int f3 = 827 - y - robotRadius;
   int f4 = y - 1070 - robotRadius;
   bool rec1 = (f1 <= 0 && f2 <= 0 && f3 <= 0 && f4 <= 0);
-  
+
   /// defining the half-space for rectangles
   int f1_2 = x - 1026 - robotRadius;
   int f2_2 = 983 - x - robotRadius;
@@ -110,7 +109,7 @@ bool ObstacleMap::createRectangles(int x, int y) {
   int f4_5 = y - 448 - robotRadius;
   bool rec5 = (f1_5 <= 0 && f2_5 <= 0 && f3_5 <= 0 && f4_5 <= 0);
 
-  /// defining the half-space for rectangles  
+  /// defining the half-space for rectangles
   int f1_6 = x - 1110 - robotRadius;
   int f2_6 = 1052 - x - robotRadius;
   int f3_6 = 178 - y - robotRadius;
@@ -131,7 +130,7 @@ bool ObstacleMap::createRectangles(int x, int y) {
   int f4_8 = y - 35 - robotRadius;
   bool rec8 = (f1_8 <= 0 && f2_8 <= 0 && f3_8 <= 0 && f4_8 <= 0);
 
-  /// defining the half-space for rectangles  
+  /// defining the half-space for rectangles
   int f1_9 = x - 896 - robotRadius;
   int f2_9 = 779 - x - robotRadius;
   int f3_9 = 35 - y - robotRadius;
@@ -175,7 +174,8 @@ bool ObstacleMap::createRectangles(int x, int y) {
 
 bool ObstacleMap::createCircles(int x, int y) {
   /// defining the half-space equations for circles
-  int eqnCircle1 = std::pow((x - 390), 2) + std::pow((y - 965), 2) - std::pow((40.5 + robotRadius), 2);
+  int eqnCircle1 = std::pow((x - 390), 2) + std::pow((y - 965), 2)
+      - std::pow((40.5 + robotRadius), 2);
   int eqnCircle2 = std::pow((x - 438), 2) + std::pow((y - 736), 2)
       - std::pow((40.5 + robotRadius), 2);
   int eqnCircle3 = std::pow((x - 390), 2) + std::pow((y - 45), 2)
@@ -183,7 +183,7 @@ bool ObstacleMap::createCircles(int x, int y) {
   int eqnCircle4 = std::pow((x - 438), 2) + std::pow((y - 274), 2)
       - std::pow((40.5 + robotRadius), 2);
   bool req = false;
-  /// check if obstacle is present 
+  /// check if obstacle is present
   if (eqnCircle1 <= 0 || eqnCircle2 <= 0 || eqnCircle3 <= 0 || eqnCircle4 <= 0)
     req = true;
   return req;
@@ -213,10 +213,10 @@ bool ObstacleMap::drawBoundary(int x, int y) {
   /// defining the boundary
   bool bool1 = (x >= 0 && x <= robotRadius)
       || (x >= 1109 - robotRadius && x <= 1109);
-  
+
   bool bool2 = (y >= 0 && y <= robotRadius)
       || (y >= 1009 - robotRadius && y <= 1009);
-  
+
   bool req = false;
   /// check if obstacle is present
   if (bool1 || bool2)
@@ -231,7 +231,7 @@ cv::Mat ObstacleMap::createMap() {
   std::vector<int> oy;
   /// Mat image initialized with ones.
   cv::Mat Z = cv::Mat::ones(1110, 1010, CV_64F);
-  
+
   ObstacleMap obsMap(1110, 1010);
 
   for (int row = 0; row < l; row++) {
@@ -240,7 +240,7 @@ cv::Mat ObstacleMap::createMap() {
       bool req1 = obsMap.createTables(row, col);
       bool req2 = obsMap.createCircles(row, col);
       bool req3 = obsMap.drawBoundary(row, col);
- 
+
       if (req0 || req1 || req2 || req3) {
         /// setting the pixel value to one for obstacle
         Z.at<double>(row, col) = 0;
@@ -251,10 +251,8 @@ cv::Mat ObstacleMap::createMap() {
   }
   cv::Mat dst;
 
-  double angle = 90;   
-
   cv::flip(Z.t(), dst, 0);
-  
+
   return dst;
 }
 

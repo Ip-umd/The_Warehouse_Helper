@@ -39,25 +39,28 @@
  *  Defines the member variables and functions in AStar class.
  */
 
+#ifndef INCLUDE_ASTAR_HPP_
+#define INCLUDE_ASTAR_HPP_
+
+#include <math.h>
 #include <iostream>
 #include <vector>
 #include <algorithm>
-#include <math.h>
-#include <opencv2/opencv.hpp>
 #include <queue>
-#include "ros/ros.h"
-#include "std_msgs/String.h"
-#include "geometry_msgs/Twist.h"
+#include <opencv2/opencv.hpp>
 #include "NodeParam.hpp"
 #include "ObstacleMap.hpp"
 
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+#include "geometry_msgs/Twist.h"
 
 /**
  * @brief AStar class
  * Class for the implementation of A* algorithm
  */
 class AStar {
- private: 
+ private:
   /// establishing part-of relationship by using object of NodeParam class
   NodeParam node;
   /// wheel velocity of robot
@@ -68,7 +71,6 @@ class AStar {
   double dt;
 
  public:
-
   /**
    * @brief Default constructor of AStar class
    * @param none
@@ -86,7 +88,6 @@ class AStar {
    * Initializes rpm1, rpm2 and dt to the values passed to the constructor
    */
   AStar(double rpm1Val, double rpm2Val, double dtVal);
-  
 
   /**
    * @brief Destructor of AStar class
@@ -104,8 +105,7 @@ class AStar {
    * @return velocity and angles for nodes in the obtained path
    */
   std::vector<std::vector<std::vector<double>>> backTrack(
-		  std::vector<std::vector<std::vector<double>>> backList);
-
+      std::vector<std::vector<std::vector<double>>> backList);
 
   /**
    * @brief motionModel - Function which describes the motion of robot
@@ -137,6 +137,7 @@ class AStar {
   void rosTurtle(std::vector<std::vector<std::vector<double>>> rosInputs);
 };
 
+#endif  // INCLUDE_ASTAR_HPP_
 
 
 

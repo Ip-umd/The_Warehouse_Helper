@@ -39,6 +39,9 @@
  *  Defines the member variables and functions in ObstacleMap class.
  */
 
+#ifndef INCLUDE_OBSTACLE_MAP_HPP_
+#define INCLUDE_OBSTACLE_MAP_HPP_
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -57,12 +60,12 @@ class ObstacleMap {
    * lenght of map
    */
   int l;
-  
+
   /**
    * width of map
    */
   int w;
-  
+
   /**
    * @brief Default constructor of ObstacleMap class
    * @param none
@@ -147,4 +150,6 @@ class ObstacleMap {
    */
   cv::Mat createMap();
 };
+
+#endif  // INCLUDE_OBSTACLE_MAP_HPP_
 

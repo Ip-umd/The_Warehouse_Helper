@@ -39,6 +39,9 @@
  *  Defines the member variables and functions in NodeParam class.
  */
 
+#ifndef INCLUDE_NODE_PARAM_HPP_
+#define INCLUDE_NODE_PARAM_HPP_
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -216,3 +219,4 @@ class NodeParam {
   void setDy(double dY);
 };
 
+#endif  // INCLUDE_NODE_PARAM_HPP_
