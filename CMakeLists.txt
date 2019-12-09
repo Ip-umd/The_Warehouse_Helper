@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 2.8.3)
 project(The_Warehouse_Helper)
 add_compile_options(-std=c++11)
 
+set(CMAKE_PREFIX_PATH "/opt/ros/kinetic/share/OpenCV-3.3.1-dev")
+find_package(OpenCV REQUIRED)
 find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   move_base_msgs
@@ -10,7 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
 )
-find_package(OpenCV REQUIRED)
 
 ## Generate messages in the 'msg' folder
 # add_message_files(
