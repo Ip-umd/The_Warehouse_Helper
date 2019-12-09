@@ -44,6 +44,10 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
+/**
+ * @brief ObstacleMap class
+ * Class for the implementation of obstacle map
+ */
 class ObstacleMap {
  private:
   double robotRadius;
@@ -68,7 +72,7 @@ class ObstacleMap {
   ObstacleMap();
 
   /**
-   * @brief Constructor of ObstacleMap class
+   * @brief Parameterized constructor of ObstacleMap class
    * @param x of type int
    * @param y of type int
    * @return none
@@ -99,42 +103,47 @@ class ObstacleMap {
    */
   double getRadius();
 
+
   /**
-   * @brief createRectangles - Function that creates obstacles of rectangle shape
-   * @param x of type int
-   * @param y of type int
+   * @brief createRectangles - Function that creates rectangle shaped  obstacles
+   * @param int - x
+   * @param int - y
    * @return bool
    */
   bool createRectangles(int x, int y);
 
+
   /**
    * @brief createTables - Function that creates tables as obstacles
-   * @param x of type int
-   * @param y of type int
+   * @param int - x
+   * @param int - y
    * @return bool
    */
   bool createTables(int x, int y);
 
+
   /**
-   * @brief createCircles - Function that creates obstacles of circle shape
-   * @param x of type int
-   * @param y of type int
+   * @brief createCircles - Function that creates circle shaped obstacles
+   * @param int - x
+   * @param int - y
    * @return bool
    */
   bool createCircles(int x, int y);
 
+
   /**
    * @brief drawBoundary - Function that creates the boundaries of map
-   * @param x of type int
-   * @param y of type int
+   * @param int - x
+   * @param int - y
    * @return bool
    */
   bool drawBoundary(int x, int y);
 
+
   /**
    * @brief createMap- Function that creates the map
    * @param none
-   * @return Mat present in cv
+   * @return cv::Mat
    */
   cv::Mat createMap();
 };

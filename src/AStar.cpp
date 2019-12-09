@@ -49,13 +49,18 @@
 #include "geometry_msgs/Twist.h"
 #include "AStar.hpp"
 
-
+/**
+ * declaring typedef for std::vector<std::vector<std::vector<double>>>
+ */
+typedef std::vector<std::vector<std::vector<double>>> nestVector;
 
 
 AStar::AStar() {
 }
 
+
 AStar::AStar(double rpm1Val, double rpm2Val, double dtVal) {
+  /// Setting the values of member variables
   rpm1 = rpm1Val;
   rpm2 = rpm2Val;
   dt = dtVal;
@@ -64,26 +69,19 @@ AStar::AStar(double rpm1Val, double rpm2Val, double dtVal) {
 AStar::~AStar() {
 }
 
-typedef std::vector<std::vector<std::vector<double>>> nestVector;
+
 nestVector AStar::backTrack(
 		  std::vector<std::vector<std::vector<double>>> backList) {
-
-//  for (int i = 0; i<backList.size(); i++) {
-//    for (int j = 0; j<backList.at(i).size(); j++) {
-//	for (int k = 0; k<backList.at(i).at(j).size(); k++) {
-//    		std::cout << backList.at(i).at(j).at(k) << std::endl;
-//    	}
-//    }    
-//  }
-   
   std::vector<std::vector<double>> path;
   nestVector rosInputs;
   int length = backList.size();
+  /// storing the currentPos of node
   std::vector<double> currentPos = backList[length - 1][0];
+  /// appending velocity and angle
   rosInputs.push_back( { backList[length - 1][2] ,
        backList[length - 1][3]  });
   path.push_back(currentPos);
-
+  /// getting the parent from backList
   std::vector<double> parent = backList[length - 1][1];
   std::vector<double> zero;
   zero.push_back(0);
@@ -91,14 +89,17 @@ nestVector AStar::backTrack(
   while (parent != zero) {
    for (int i = 0; i < length; i++) {
      std::vector<std::vector<double> > X = backList[i];
+     /// checking if parent found
      if (X[0] == parent) {
        parent = X[1];
        currentPos = X[0];
        path.push_back(currentPos);
+       /// appending velocity and angle in rosInputs
        rosInputs.push_back( { { X[2] }, { X[3] } });
      }
    } 
   } 
+  /// reversing the data stored in path and rosInputs
   std::reverse(path.begin(), path.end());
   std::reverse(rosInputs.begin(), rosInputs.end());
   return rosInputs;
@@ -106,19 +107,14 @@ nestVector AStar::backTrack(
 
     	
 
-
-//std::vector<nestVector> AStar::backTrack(
-//		  std::vector<std::vector<std::vector<double>>> n) {
-//	std::vector<nestVector> temp1;
-//	temp1.push_back(n);
-//	return temp1;
-//}
-
 std::vector<std::vector<double>> AStar::motionModel() {
+  /// defining the distance between wheels of Turtlebot3
   double l = 35.4;
+  /// defining the radius of wheels of Turtlebot3
   double r = 3.8;
+   
   std::vector<std::vector<double>> action;
-
+  /// 8 possible action states for a node based on rpm's
   std::vector<std::array<double, 2>> steps { { 0.0, rpm1 }, { rpm1, 0.0 }, {
       rpm1, rpm1 }, { 0.0, rpm2 }, { rpm2, 0.0 }, { rpm2, rpm2 },
       { rpm1, rpm2 }, { rpm2, rpm1 } };
@@ -126,59 +122,58 @@ std::vector<std::vector<double>> AStar::motionModel() {
   double theta = node.getTheta();
 
   for (auto motion : steps) {
+    /// defining ur, ul and  thetadot based on differential drive model
     double ur = (motion.at(0) * M_PI) / 30;
-
     double ul = (motion.at(1) * M_PI) / 30;
     double thetadot = (r / l) * (ur - ul);
+    /// calculating change in angle 
     double dtheta = thetadot * dt;
-
     double change_theta = theta + dtheta;
 
     double xdot = (r / 2) * (ul + ur) * cos(change_theta);
-
     double ydot = (r / 2) * (ul + ur) * sin(change_theta);
-
+    /// setting the dx for node
     double dx = round(xdot * dt);
+    /// setting the dy for node
     double dy = round(ydot * dt);
-
+    /// setting the cost
     double cost = std::sqrt(std::pow((dx), 2) + std::pow((dy), 2));
+    /// setting velocity magnitude
     double vel_mag = std::sqrt(std::pow(xdot, 2) + std::pow(ydot, 2));
-
+    
     action.push_back( { dx, dy, cost, change_theta, vel_mag, dtheta });
   }
-    return action;
+  return action;
 }
 
 
 nestVector AStar::aStar(std::vector<double> startPoint, std::vector<double> goalPoint) {
-
+  /// defining struct to implement the priority queue
   struct Compare {
     bool operator()(std::vector<std::vector<std::vector<double>>> const & a, std::vector<std::vector<std::vector<double>>> const & b)
     { return a[0][0][0] > b[0][0][0]; }
   };
-
+  /// declaring the variables for storing unvisited and visited nodes
   std::priority_queue< std::vector<std::vector<std::vector<double>>>, std::vector<std::vector<std::vector< std::vector<double> > >>, Compare > unvisited;
   std::priority_queue< std::vector<std::vector<std::vector<double>>>, std::vector<std::vector<std::vector< std::vector<double> > >>, Compare > visited;
-  //double theta = node.getTheta();
-  double theta = 0.0;
 
+  double theta = 0.0;
+  /// defining the startNode
   nestVector startNode ;
   startNode.push_back({ {0.0}, startPoint, {0,0} , {0.0},
       {theta}, {0.0}, {0.0} });
+  /// defining the endNode
   nestVector endNode ;
   endNode.push_back({ {0.0}, goalPoint, {0,0} , {0.0},
       {theta}, {0.0}, {0.0} });
 
-
-//  std::make_heap(unvisited.begin(), unvisited.end());
-//  unvisited.push_back(startNode);
-//  push_heap(unvisited.begin(), unvisited.end());
   unvisited.push({{ {0.0}, startPoint, {0,0} , {0.0},
       {theta}, {0.0}, {0.0} }});
   
   ObstacleMap map(1110, 1010);
+  /// setting the radius of robot
   map.setRadius(50.0);
-//  cv::Mat costMap = map.createMap();
+  /// Creating costMap for node exploration
   cv::Mat costMap = cv::Mat::ones(1110, 1010, CV_64F);
   costMap.at<double>(int(startNode.at(0).at(1).at(0)), int(startNode.at(0).at(1).at(1))) = 0;
   cv::namedWindow("Display window", cv::WINDOW_NORMAL);
@@ -188,114 +183,97 @@ nestVector AStar::aStar(std::vector<double> startPoint, std::vector<double> goal
 
   nestVector path;
   nestVector bT;
+
   while (unvisited.size() > 0) {
     nestVector currentNode;
+    /// storing the node with least cost in currentNode
     currentNode = unvisited.top();
-//    std::cout << currentNode.at(0).at(0).at(0) << " " << currentNode.at(0).at(1).at(0) << " " << currentNode.at(0).at(1).at(1) << std::endl;
-    
-//    for (int i = 0; i<currentNode.at(0).size(); i++) {
-//  	  for (int j = 0; j<currentNode.at(0).at(i).size(); j++) {
-//  	  	std::cout << currentNode.at(0).at(i).at(j) << std::endl;
-//  	  }
-//    }    
-
-
+    /// removing the node from unvisited
     unvisited.pop();
+    /// adding the node in visited
     visited.push(currentNode);
-
-    std::vector<int> temp;
-
 
     bT.push_back( { currentNode.at(0).at(1), currentNode.at(0).at(2), currentNode.at(0).at(5),
         currentNode.at(0).at(6) });
 
+    /// defining the threshold for reaching destination
     int thresh = round(
         std::sqrt(
             std::pow(double(currentNode.at(0).at(1).at(0) - endNode.at(0).at(1).at(0)), 2)
                 + std::pow(double(currentNode.at(0).at(1).at(1) - endNode.at(0).at(1).at(1)), 2)));
 
-
     if (thresh <= 5) {
       path = backTrack(bT);
       return path;
-
     }
-
+    /// Checking whether the destination is reached
     if (currentNode.at(0).at(1) == endNode.at(0).at(1)) {
       path = backTrack(bT);
       return path;
     }
 
-
     node.setTheta(currentNode.at(0).at(4).at(0));
-
+    /// calling the motionModel() function
     std::vector<std::vector<double>> motion = motionModel();
-    //std::vector<double> neighbours;
+
+    /// Exploring all the neighbor nodes
     for (auto newPos : motion) {
+      /// setting the member variables of nodes through setters
       node.setCurrent(
           std::vector<double> { currentNode.at(0).at(1).at(0) + newPos.at(0), currentNode.at(0).at(1).at(1)
-              + newPos.at(1) });
-//      std::cout << node.getCurrent()[0] << " " << node.getCurrent()[1] << std::endl;  
+              + newPos.at(1) });  
+      /// setting the member variables of nodes through setters
       node.setGCost(double(currentNode.at(0).at(3).at(0)) + newPos.at(2));
+      /// setting the member variables of nodes through setters
       node.setHCost(
           double(
               std::sqrt(
                   std::pow(double(endNode.at(0).at(1).at(0) - node.getCurrent()[0]), 2)
                       + std::pow(double(endNode.at(0).at(1).at(1) - node.getCurrent()[1]),
                                  2))));
-//      node.setTotalCost(double(node.getHCost() + node.getGCost()));
-
+      /// setting the member variables of nodes through setters
       node.setTotalCost(double(node.getHCost() + (1.0 * node.getGCost()) ));
-
+      /// setting the member variables of nodes through setters
       node.setParent( currentNode.at(0).at(1) );
-
+      /// setting the member variables of nodes through setters
       node.setTheta(newPos[3]);
 
       double nodeVelocity = newPos[4];
 
       node.setDTheta(newPos[5]);
 
+      /// checking if the explored node is within boundaries
       if (node.getCurrent()[0] > (1010 - 1) or node.getCurrent()[0] < 0
           or node.getCurrent()[1] > (1110 - 1) or node.getCurrent()[1] < 0) {
         continue;
       }
 
+      ///  checking if the explored node is not hitting the obstacle
       if (costMap.at<double>(node.getCurrent()[0], node.getCurrent()[1]) != 1) {
         continue;
       }
-
-      costMap.at<double>(node.getCurrent()[0], node.getCurrent()[1]) = 0;
-      
-//      cv::namedWindow("Display window", cv::WINDOW_NORMAL);
-//      cv::resizeWindow("Display frame", 505,555);
-//      cv::imshow("Display window", costMap);
-//      cv::waitKey(10); 
+      /// updating the costMap
+      costMap.at<double>(node.getCurrent()[0], node.getCurrent()[1]) = 0; 
 
       nestVector newNode;
+      
       newNode.push_back({ {node.getTotalCost()}, node.getCurrent(), node
           .getParent(), {node.getGCost()}, {node.getTheta()}, {nodeVelocity}, {node
           .getDTheta()} });
-
-      
-//      unvisited.push_back(newNode);
+      /// Adding the explored node to unvisited
       unvisited.push({{ {node.getTotalCost()}, node.getCurrent(), node
           .getParent(), {node.getGCost()}, {node.getTheta()}, {nodeVelocity}, {node
           .getDTheta()} }});
-//      push_heap(unvisited.begin(), unvisited.end());
-
-        
-    
     }
-
   }
-
 }
+
 
 void AStar::rosTurtle(std::vector<std::vector<std::vector<double>>> rosInputs) {
   ros::NodeHandle n;
-    
+  /// Defining the publisher for cmd_vel topic
   ros::Publisher velPub = n.advertise < geometry_msgs::Twist > ("/cmd_vel", 1000);
-
+  /// Declaring the object of geometry_msgs::Twist
   geometry_msgs::Twist msg;
   msg.linear.x = 0.0;
   msg.linear.y = 0.0;
@@ -303,12 +281,14 @@ void AStar::rosTurtle(std::vector<std::vector<std::vector<double>>> rosInputs) {
   msg.angular.x = 0.0;
   msg.angular.y = 0.0;
   msg.angular.z = 0.0;
+  /// setting the publishing rate to 10HZ
   ros::Rate loop_rate(10);
 
   int c = 0;
   int num = 0;
   while (ros::ok()){
       if (c <= 10){
+          /// stop the robot if goal is reached
           if (num == rosInputs.size()){
               msg.linear.x = 0.0;
               msg.angular.z = 0.0;
@@ -317,11 +297,12 @@ void AStar::rosTurtle(std::vector<std::vector<std::vector<double>>> rosInputs) {
            }
            double x = (rosInputs.at(num).at(0).at(0)) / 100;
            double w = (rosInputs.at(num).at(1).at(0));
+           /// Setting the linear and angular velocities
            msg.linear.x = x ;
-           msg.angular.z = w;   
+           msg.angular.z = w; 
+           /// Publishing the msg on topic  
            velPub.publish(msg);
            if(c == 10){
-                //print(n, vel_bot.linear.x, vel_bot.angular.z)
                num = num + 1;
                c = 0;
            }

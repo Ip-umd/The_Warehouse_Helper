@@ -44,6 +44,12 @@
 #include <vector>
 #include <opencv2/opencv.hpp>
 
+
+/**
+ * @brief NodeParam class
+ * Class for the implementation of costs, velocities, angles
+ * and coordinates for nodes in A* algorithm
+ */
 class NodeParam {
  private:
   std::vector<double> currentNode;
@@ -65,6 +71,7 @@ class NodeParam {
    */
   NodeParam();
 
+
   /**
    * @brief Destructor of NodeParam class
    * @param none
@@ -76,29 +83,29 @@ class NodeParam {
   /**
    * @brief getCurrent function
    * @param none
-   * @return vector of double
+   * @return std::vector<double> - currentNode
    * Returns the currentNode upon request
    */
   std::vector<double> getCurrent();
 
   /**
    * @brief setCurrent function
-   * @param current - vector of double
+   * @param std::vector<double> - current
    * @return none
    */
   void setCurrent(std::vector<double> current);
 
   /**
-   * @brief getparent function
+   * @brief getParent function
    * @param none
-   * @return vector of double
+   * @return std::vector<double> - parentNode
    * Returns the parentNode upon request
    */
   std::vector<double> getParent();
 
   /**
    * @brief setParent function
-   * @param parent - vector of double
+   * @param std::vector<double> - parent
    * @return none
    */
   void setParent(std::vector<double> parent);
@@ -106,14 +113,14 @@ class NodeParam {
   /**
    * @brief getGCost function
    * @param none
-   * @return double
+   * @return double - gCost
    * Returns the gCost upon request
    */
   double getGCost();
 
   /**
    * @brief setGCost function
-   * @param costToGo - double
+   * @param double - costToGo
    * @return none
    */
   void setGCost(double costToGo);
@@ -121,14 +128,14 @@ class NodeParam {
   /**
    * @brief getHCost function
    * @param none
-   * @return double
+   * @return double - hCost
    * Returns the hCost upon request
    */
   double getHCost();
 
   /**
    * @brief setHCost function
-   * @param costToCome - double
+   * @param double - costToCome 
    * @return none
    */
   void setHCost(double costToCome);
@@ -136,14 +143,14 @@ class NodeParam {
   /**
    * @brief getTotalCost function
    * @param none
-   * @return double
+   * @return double - totalCost
    * Returns the totalCost upon request
    */
   double getTotalCost();
 
   /**
-   * @brief settotalCost function
-   * @param total - double
+   * @brief setTotalCost function
+   * @param double - total
    * @return none
    */
   void setTotalCost(double total);
@@ -151,14 +158,14 @@ class NodeParam {
   /**
    * @brief getTheta function
    * @param none
-   * @return double
+   * @return double - theta
    * Returns the theta upon request
    */
   double getTheta();
 
   /**
    * @brief setTheta function
-   * @param th - double
+   * @param double - th
    * @return none
    */
   void setTheta(double th);
@@ -166,14 +173,14 @@ class NodeParam {
   /**
    * @brief getDTheta function
    * @param none
-   * @return double
+   * @return double -dtheta
    * Returns the dtheta upon request
    */
   double getDTheta();
 
   /**
    * @brief setDTheta function
-   * @param dth - double
+   * @param double - dth 
    * @return none
    */
   void setDTheta(double dth);
@@ -181,14 +188,14 @@ class NodeParam {
   /**
    * @brief getDx function
    * @param none
-   * @return double
+   * @return double - dx
    * Returns the dx upon request
    */
   double getDx();
 
   /**
    * @brief setDx function
-   * @param dX - double
+   * @param double - dX
    * @return none
    */
   void setDx(double dX);
@@ -196,14 +203,14 @@ class NodeParam {
   /**
    * @brief getDy function
    * @param none
-   * @return double
+   * @return double - dy
    * Returns the dy upon request
    */
   double getDy();
 
   /**
    * @brief setDy function
-   * @param dY - double
+   * @param double - dY
    * @return none
    */
   void setDy(double dY);
