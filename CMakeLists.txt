@@ -222,9 +222,11 @@ if(CATKIN_ENABLE_TESTING)
   test/main.cpp
   test/NodeParamTest.cpp
   test/ObstacleMapTest.cpp
+  test/AStarTest.cpp
   
   src/NodeParam.cpp
   src/ObstacleMap.cpp
+  src/AStar.cpp
   )
 
   target_link_libraries(
