@@ -170,7 +170,7 @@ script:
   # Run the tests, ensuring the path is set correctly.
   - source devel/setup.bash
   #- catkin_make run_tests_irona && catkin_test_results
-  - rostest irona launchtest.launch
+  #- rostest irona launchtest.launch
 
 after_success:
   - cd ~/catkin_ws/build
