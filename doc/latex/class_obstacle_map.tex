@@ -1,0 +1,304 @@
+\hypertarget{class_obstacle_map}{}\section{Obstacle\+Map Class Reference}
+\label{class_obstacle_map}\index{Obstacle\+Map@{Obstacle\+Map}}
+
+
+\hyperlink{class_obstacle_map}{Obstacle\+Map} class Class for the implementation of obstacle map.  
+
+
+
+
+{\ttfamily \#include $<$Obstacle\+Map.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_obstacle_map_adad91248cb403d70be14d6a455585a26}{Obstacle\+Map} ()
+\begin{DoxyCompactList}\small\item\em Default constructor of \hyperlink{class_obstacle_map}{Obstacle\+Map} class. \end{DoxyCompactList}\item 
+\hyperlink{class_obstacle_map_aceecca97376bb67939a8acca45ef28c2}{Obstacle\+Map} (int x, int y)
+\begin{DoxyCompactList}\small\item\em Parameterized constructor of \hyperlink{class_obstacle_map}{Obstacle\+Map} class. \end{DoxyCompactList}\item 
+\hyperlink{class_obstacle_map_a3165621713b03258d80d44bc00599579}{$\sim$\+Obstacle\+Map} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_obstacle_map}{Obstacle\+Map} class. \end{DoxyCompactList}\item 
+void \hyperlink{class_obstacle_map_a5eca9b21b7fed6df0e69efca4750888b}{set\+Radius} (double radius)
+\begin{DoxyCompactList}\small\item\em setradius function \end{DoxyCompactList}\item 
+double \hyperlink{class_obstacle_map_ada9f00b4a5b6ed9a15125782ddaf94c8}{get\+Radius} ()
+\begin{DoxyCompactList}\small\item\em get\+Radius function \end{DoxyCompactList}\item 
+bool \hyperlink{class_obstacle_map_ac61682abf414740f2776231363c845aa}{create\+Rectangles} (int x, int y)
+\begin{DoxyCompactList}\small\item\em create\+Rectangles -\/ Function that creates rectangle shaped obstacles \end{DoxyCompactList}\item 
+bool \hyperlink{class_obstacle_map_ab5a913058a0bf671abdbd90c9159dfd3}{create\+Tables} (int x, int y)
+\begin{DoxyCompactList}\small\item\em create\+Tables -\/ Function that creates tables as obstacles \end{DoxyCompactList}\item 
+bool \hyperlink{class_obstacle_map_a47f8d38845ea5a59f62299c007dad347}{create\+Circles} (int x, int y)
+\begin{DoxyCompactList}\small\item\em create\+Circles -\/ Function that creates circle shaped obstacles \end{DoxyCompactList}\item 
+bool \hyperlink{class_obstacle_map_a4d4a68b49bcbd7d4bb75ecea85353edc}{draw\+Boundary} (int x, int y)
+\begin{DoxyCompactList}\small\item\em draw\+Boundary -\/ Function that creates the boundaries of map \end{DoxyCompactList}\item 
+cv\+::\+Mat \hyperlink{class_obstacle_map_a8a50b289f56973c1ef8de9cd3fb2a87e}{create\+Map} ()
+\begin{DoxyCompactList}\small\item\em create\+Map-\/ Function that creates the map \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{class_obstacle_map_a575aaad3531c0e18334744280c67eefd}{l}
+\item 
+int \hyperlink{class_obstacle_map_a094dba5815e681e22cc363a4cd8b511a}{w}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_obstacle_map}{Obstacle\+Map} class Class for the implementation of obstacle map. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{Obstacle\+Map@{Obstacle\+Map}!Obstacle\+Map@{Obstacle\+Map}}
+\index{Obstacle\+Map@{Obstacle\+Map}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{Obstacle\+Map()}{ObstacleMap()}}]{\setlength{\rightskip}{0pt plus 5cm}Obstacle\+Map\+::\+Obstacle\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_adad91248cb403d70be14d6a455585a26}{}\label{class_obstacle_map_adad91248cb403d70be14d6a455585a26}
+
+
+Default constructor of \hyperlink{class_obstacle_map}{Obstacle\+Map} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none Initializes private data members of the class to zero 
+\end{DoxyReturn}
+Initializing the member variables to zero \index{Obstacle\+Map@{Obstacle\+Map}!Obstacle\+Map@{Obstacle\+Map}}
+\index{Obstacle\+Map@{Obstacle\+Map}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{Obstacle\+Map(int x, int y)}{ObstacleMap(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}Obstacle\+Map\+::\+Obstacle\+Map (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_aceecca97376bb67939a8acca45ef28c2}{}\label{class_obstacle_map_aceecca97376bb67939a8acca45ef28c2}
+
+
+Parameterized constructor of \hyperlink{class_obstacle_map}{Obstacle\+Map} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & of type int \\
+\hline
+{\em y} & of type int \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none Initializes x and y to the values passed to the constructor 
+\end{DoxyReturn}
+initializing the length and width of warehouse \index{Obstacle\+Map@{Obstacle\+Map}!````~Obstacle\+Map@{$\sim$\+Obstacle\+Map}}
+\index{````~Obstacle\+Map@{$\sim$\+Obstacle\+Map}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{$\sim$\+Obstacle\+Map()}{~ObstacleMap()}}]{\setlength{\rightskip}{0pt plus 5cm}Obstacle\+Map\+::$\sim$\+Obstacle\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_a3165621713b03258d80d44bc00599579}{}\label{class_obstacle_map_a3165621713b03258d80d44bc00599579}
+
+
+Destructor of \hyperlink{class_obstacle_map}{Obstacle\+Map} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none Destroys class objects 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{Obstacle\+Map@{Obstacle\+Map}!create\+Circles@{create\+Circles}}
+\index{create\+Circles@{create\+Circles}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{create\+Circles(int x, int y)}{createCircles(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Obstacle\+Map\+::create\+Circles (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_a47f8d38845ea5a59f62299c007dad347}{}\label{class_obstacle_map_a47f8d38845ea5a59f62299c007dad347}
+
+
+create\+Circles -\/ Function that creates circle shaped obstacles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ x \\
+\hline
+{\em int} & -\/ y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+defining the half-\/space equations for circles
+
+check if obstacle is present \index{Obstacle\+Map@{Obstacle\+Map}!create\+Map@{create\+Map}}
+\index{create\+Map@{create\+Map}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{create\+Map()}{createMap()}}]{\setlength{\rightskip}{0pt plus 5cm}cv\+::\+Mat Obstacle\+Map\+::create\+Map (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_a8a50b289f56973c1ef8de9cd3fb2a87e}{}\label{class_obstacle_map_a8a50b289f56973c1ef8de9cd3fb2a87e}
+
+
+create\+Map-\/ Function that creates the map 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+cv\+::\+Mat 
+\end{DoxyReturn}
+Mat image initialized with ones.
+
+setting the pixel value to one for obstacle \index{Obstacle\+Map@{Obstacle\+Map}!create\+Rectangles@{create\+Rectangles}}
+\index{create\+Rectangles@{create\+Rectangles}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{create\+Rectangles(int x, int y)}{createRectangles(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Obstacle\+Map\+::create\+Rectangles (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_ac61682abf414740f2776231363c845aa}{}\label{class_obstacle_map_ac61682abf414740f2776231363c845aa}
+
+
+create\+Rectangles -\/ Function that creates rectangle shaped obstacles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ x \\
+\hline
+{\em int} & -\/ y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+defining the half-\/space for rectangles
+
+check if obstacle is present \index{Obstacle\+Map@{Obstacle\+Map}!create\+Tables@{create\+Tables}}
+\index{create\+Tables@{create\+Tables}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{create\+Tables(int x, int y)}{createTables(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Obstacle\+Map\+::create\+Tables (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_ab5a913058a0bf671abdbd90c9159dfd3}{}\label{class_obstacle_map_ab5a913058a0bf671abdbd90c9159dfd3}
+
+
+create\+Tables -\/ Function that creates tables as obstacles 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ x \\
+\hline
+{\em int} & -\/ y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+defining the half-\/space equations for table
+
+check if obstacle is present \index{Obstacle\+Map@{Obstacle\+Map}!draw\+Boundary@{draw\+Boundary}}
+\index{draw\+Boundary@{draw\+Boundary}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{draw\+Boundary(int x, int y)}{drawBoundary(int x, int y)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Obstacle\+Map\+::draw\+Boundary (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_a4d4a68b49bcbd7d4bb75ecea85353edc}{}\label{class_obstacle_map_a4d4a68b49bcbd7d4bb75ecea85353edc}
+
+
+draw\+Boundary -\/ Function that creates the boundaries of map 
+
+
+\begin{DoxyParams}{Parameters}
+{\em int} & -\/ x \\
+\hline
+{\em int} & -\/ y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+defining the boundary
+
+check if obstacle is present \index{Obstacle\+Map@{Obstacle\+Map}!get\+Radius@{get\+Radius}}
+\index{get\+Radius@{get\+Radius}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{get\+Radius()}{getRadius()}}]{\setlength{\rightskip}{0pt plus 5cm}double Obstacle\+Map\+::get\+Radius (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_ada9f00b4a5b6ed9a15125782ddaf94c8}{}\label{class_obstacle_map_ada9f00b4a5b6ed9a15125782ddaf94c8}
+
+
+get\+Radius function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double Returns the robot\+Radius upon request 
+\end{DoxyReturn}
+returning the robot\+Radius \index{Obstacle\+Map@{Obstacle\+Map}!set\+Radius@{set\+Radius}}
+\index{set\+Radius@{set\+Radius}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{set\+Radius(double radius)}{setRadius(double radius)}}]{\setlength{\rightskip}{0pt plus 5cm}void Obstacle\+Map\+::set\+Radius (
+\begin{DoxyParamCaption}
+\item[{double}]{radius}
+\end{DoxyParamCaption}
+)}\hypertarget{class_obstacle_map_a5eca9b21b7fed6df0e69efca4750888b}{}\label{class_obstacle_map_a5eca9b21b7fed6df0e69efca4750888b}
+
+
+setradius function 
+
+
+\begin{DoxyParams}{Parameters}
+{\em radius} & -\/ double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+setting the radius 
+
+\subsection{Member Data Documentation}
+\index{Obstacle\+Map@{Obstacle\+Map}!l@{l}}
+\index{l@{l}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{l}{l}}]{\setlength{\rightskip}{0pt plus 5cm}int Obstacle\+Map\+::l}\hypertarget{class_obstacle_map_a575aaad3531c0e18334744280c67eefd}{}\label{class_obstacle_map_a575aaad3531c0e18334744280c67eefd}
+lenght of map \index{Obstacle\+Map@{Obstacle\+Map}!w@{w}}
+\index{w@{w}!Obstacle\+Map@{Obstacle\+Map}}
+\subsubsection[{\texorpdfstring{w}{w}}]{\setlength{\rightskip}{0pt plus 5cm}int Obstacle\+Map\+::w}\hypertarget{class_obstacle_map_a094dba5815e681e22cc363a4cd8b511a}{}\label{class_obstacle_map_a094dba5815e681e22cc363a4cd8b511a}
+width of map 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_obstacle_map_8hpp}{Obstacle\+Map.\+hpp}\item 
+src/\hyperlink{_obstacle_map_8cpp}{Obstacle\+Map.\+cpp}\end{DoxyCompactItemize}

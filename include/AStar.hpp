@@ -39,12 +39,21 @@
  *  Defines the member variables and functions in AStar class.
  */
 
+#ifndef INCLUDE_ASTAR_HPP_
+#define INCLUDE_ASTAR_HPP_
+
+#include <math.h>
 #include <iostream>
-#include <string>
 #include <vector>
+#include <algorithm>
+#include <queue>
 #include <opencv2/opencv.hpp>
-#include "ObstacleMap.hpp"
 #include "NodeParam.hpp"
+#include "ObstacleMap.hpp"
+
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+#include "geometry_msgs/Twist.h"
 
 /**
  * @brief AStar class
@@ -52,12 +61,11 @@
  */
 class AStar {
  private:
-  ObstacleMap map;
-
+  /// establishing part-of relationship by using object of NodeParam class
   NodeParam node;
-
+  /// wheel velocity of robot
   double rpm1;
-
+  /// wheel velocity of robot
   double rpm2;
 
   double dt;
@@ -73,13 +81,13 @@ class AStar {
 
   /**
    * @brief Constructor of AStar class
-   * @param RPM1 of type double
-   * @param RPM2 of type double
-   * @param dT of type double
+   * @param rpm1Val of type double
+   * @param rpm2Val of type double
+   * @param dtVal of type double
    * @return none
    * Initializes rpm1, rpm2 and dt to the values passed to the constructor
    */
-  AStar(double RPM1, double RPM2, double dT);
+  AStar(double rpm1Val, double rpm2Val, double dtVal);
 
   /**
    * @brief Destructor of AStar class
@@ -89,29 +97,49 @@ class AStar {
    */
   ~AStar();
 
+
   /**
    * @brief backtrack - Function which implements the backtracking
-   * @param backList - vector of vector of double
-   * @return vector of vector of double
+   * @param backList - contains currentNode, parentNode, velocity 
+   *                   and angle for nodes
+   * @return velocity and angles for nodes in the obtained path
    */
-  std::vector<std::vector<double>> backTrack(
-      std::vector<std::vector<double>> backList);
+  std::vector<std::vector<std::vector<double>>> backTrack(
+      std::vector<std::vector<std::vector<double>>> backList);
 
   /**
    * @brief motionModel - Function which describes the motion of robot
-   * @param nodeInfo - none
-   * @return vector of vector of double
+   * @param none
+   * @return std::vector<std::vector<double>> - action states for a node
    */
   std::vector<std::vector<double>> motionModel();
 
+
   /**
    * @brief motionModel - Function which implements the A* algorithm
-   * @param startPoint - vector of double
-   * @param goalPoint - vector of double
-   * @return vector of vector of double
+   * @param startPoint - coordinates of startPoint
+   * @param goalPoint - coordinates of goalPoint
+   * @return velocities and angles of nodes in backtrack list
    */
-  std::vector<std::vector<double>> aStar(std::vector<double> startPoint,
-                                         std::vector<double> goalPoint);
+  std::vector<std::vector<std::vector<double>>> aStar(
+      std::vector<double> startPoint, std::vector<double> goalPoint);
+
+
+  /**
+   * @brief motionModel - Function for publlishing to ROS topic
+   * @param rosInputs - variable having velocities and angles from backTrack function
+   * @return none
+   *
+   * This function creates a ROS node, which publishes the velocities and angles to 
+   * the cmd_vel topic, which Turtlebot uses to navigate on the path 
+   * returned by A* algorithm
+   */
+  void rosTurtle(std::vector<std::vector<std::vector<double>>> rosInputs);
 };
+
+#endif  // INCLUDE_ASTAR_HPP_
+
+
+
 
 

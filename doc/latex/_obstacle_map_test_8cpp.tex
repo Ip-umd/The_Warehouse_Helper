@@ -1,0 +1,244 @@
+\hypertarget{_obstacle_map_test_8cpp}{}\section{test/\+Obstacle\+Map\+Test.cpp File Reference}
+\label{_obstacle_map_test_8cpp}\index{test/\+Obstacle\+Map\+Test.\+cpp@{test/\+Obstacle\+Map\+Test.\+cpp}}
+
+
+unit tests for \hyperlink{class_a_star}{A\+Star} class  
+
+
+{\ttfamily \#include $<$ros/ros.\+h$>$}\\*
+{\ttfamily \#include $<$gtest/gtest.\+h$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$opencv2/opencv.\+hpp$>$}\\*
+{\ttfamily \#include \char`\"{}Obstacle\+Map.\+hpp\char`\"{}}\\*
+Include dependency graph for Obstacle\+Map\+Test.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_obstacle_map_test_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_obstacle_map_test_8cpp_aca2a83cec118a500836e24c93d5ddfab}{T\+E\+ST} (Obstacle\+Map\+Test, Get\+Radius\+Test)
+\begin{DoxyCompactList}\small\item\em Test for get\+Radius() function. \end{DoxyCompactList}\item 
+\hyperlink{_obstacle_map_test_8cpp_aedbc2811c604dc8050213a700d8d26c2}{T\+E\+ST} (Obstacle\+Map\+Test, Create\+Rectangles\+Test)
+\begin{DoxyCompactList}\small\item\em Test for create\+Rectangles() function. \end{DoxyCompactList}\item 
+\hyperlink{_obstacle_map_test_8cpp_a3998eed8f531690f0e6c4145e344c78e}{T\+E\+ST} (Obstacle\+Map\+Test, Create\+Tables\+Test)
+\begin{DoxyCompactList}\small\item\em Test for create\+Tables() function. \end{DoxyCompactList}\item 
+\hyperlink{_obstacle_map_test_8cpp_a609dffea559a9d81cd55453136fd7a30}{T\+E\+ST} (Obstacle\+Map\+Test, Create\+Circles\+Test)
+\begin{DoxyCompactList}\small\item\em Test for create\+Circles() function. \end{DoxyCompactList}\item 
+\hyperlink{_obstacle_map_test_8cpp_a93e8a31f9279507eddc7d1bc1459ae87}{T\+E\+ST} (Obstacle\+Map\+Test, Draw\+Boundary\+Test)
+\begin{DoxyCompactList}\small\item\em Test for draw\+Boundary() function. \end{DoxyCompactList}\item 
+\hyperlink{_obstacle_map_test_8cpp_aef0f55b85777bc9a1098059cf658ae5f}{T\+E\+ST} (Obstacle\+Map\+Test, Create\+Map\+Test)
+\begin{DoxyCompactList}\small\item\em Test for create\+Map() function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+unit tests for \hyperlink{class_a_star}{A\+Star} class 
+
+unit tests for \hyperlink{class_obstacle_map}{Obstacle\+Map} class
+
+The 3-\/\+Clause B\+SD License
+
+Copyright (c) 2019, Ishan Patel, Nakul Patel, Sri Manika Makam
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S
+\+I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF
+
+\begin{DoxyAuthor}{Author}
+Ishan Patel 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+3-\/\+Clause B\+SD License This is the .cpp file that uses certain unit tests from gtest framework to test the functions of \hyperlink{class_a_star}{A\+Star} class.
+\end{DoxyCopyright}
+The 3-\/\+Clause B\+SD License
+
+Copyright (c) 2019, Ishan Patel, Nakul Patel, Sri Manika Makam
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S
+\+I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF
+
+\begin{DoxyAuthor}{Author}
+Sri Manika Makam 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+3-\/\+Clause B\+SD License This is the .cpp file that uses certain unit tests from gtest framework to test the functions of \hyperlink{class_node_param}{Node\+Param} class.
+\end{DoxyCopyright}
+The 3-\/\+Clause B\+SD License
+
+Copyright (c) 2019, Ishan Patel, Nakul Patel, Sri Manika Makam
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met\+:
+
+
+\begin{DoxyEnumerate}
+\item Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+\item Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+\item Neither the name of the copyright holder nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+\end{DoxyEnumerate}
+
+T\+H\+IS S\+O\+F\+T\+W\+A\+RE IS P\+R\+O\+V\+I\+D\+ED BY T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+E\+RS A\+ND C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS \char`\"{}\+A\+S
+\+I\+S\char`\"{} A\+ND A\+NY E\+X\+P\+R\+E\+SS OR I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES, I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, T\+HE I\+M\+P\+L\+I\+ED W\+A\+R\+R\+A\+N\+T\+I\+ES OF M\+E\+R\+C\+H\+A\+N\+T\+A\+B\+I\+L\+I\+TY A\+ND F\+I\+T\+N\+E\+SS F\+OR A P\+A\+R\+T\+I\+C\+U\+L\+AR P\+U\+R\+P\+O\+SE A\+RE D\+I\+S\+C\+L\+A\+I\+M\+ED. IN NO E\+V\+E\+NT S\+H\+A\+LL T\+HE C\+O\+P\+Y\+R\+I\+G\+HT H\+O\+L\+D\+ER OR C\+O\+N\+T\+R\+I\+B\+U\+T\+O\+RS BE L\+I\+A\+B\+LE F\+OR A\+NY D\+I\+R\+E\+CT, I\+N\+D\+I\+R\+E\+CT, I\+N\+C\+I\+D\+E\+N\+T\+AL, S\+P\+E\+C\+I\+AL, E\+X\+E\+M\+P\+L\+A\+RY, OR C\+O\+N\+S\+E\+Q\+U\+E\+N\+T\+I\+AL D\+A\+M\+A\+G\+ES (I\+N\+C\+L\+U\+D\+I\+NG, B\+UT N\+OT L\+I\+M\+I\+T\+ED TO, P\+R\+O\+C\+U\+R\+E\+M\+E\+NT OF S\+U\+B\+S\+T\+I\+T\+U\+TE G\+O\+O\+DS OR S\+E\+R\+V\+I\+C\+ES; L\+O\+SS OF U\+SE, D\+A\+TA, OR P\+R\+O\+F\+I\+TS; OR B\+U\+S\+I\+N\+E\+SS I\+N\+T\+E\+R\+R\+U\+P\+T\+I\+ON) H\+O\+W\+E\+V\+ER C\+A\+U\+S\+ED A\+ND ON A\+NY T\+H\+E\+O\+RY OF L\+I\+A\+B\+I\+L\+I\+TY, W\+H\+E\+T\+H\+ER IN C\+O\+N\+T\+R\+A\+CT, S\+T\+R\+I\+CT L\+I\+A\+B\+I\+L\+I\+TY, OR T\+O\+RT (I\+N\+C\+L\+U\+D\+I\+NG N\+E\+G\+L\+I\+G\+E\+N\+CE OR O\+T\+H\+E\+R\+W\+I\+SE) A\+R\+I\+S\+I\+NG IN A\+NY W\+AY O\+UT OF T\+HE U\+SE OF T\+H\+IS S\+O\+F\+T\+W\+A\+RE, E\+V\+EN IF A\+D\+V\+I\+S\+ED OF
+
+\begin{DoxyAuthor}{Author}
+Nakul Patel 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+3-\/\+Clause B\+SD License This is the .cpp file that uses certain unit tests from gtest framework to test the functions of \hyperlink{class_obstacle_map}{Obstacle\+Map} class. 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\index{Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Obstacle\+Map\+Test, Get\+Radius\+Test)}{TEST(ObstacleMapTest, GetRadiusTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Obstacle\+Map\+Test}]{, }
+\item[{Get\+Radius\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_obstacle_map_test_8cpp_aca2a83cec118a500836e24c93d5ddfab}{}\label{_obstacle_map_test_8cpp_aca2a83cec118a500836e24c93d5ddfab}
+
+
+Test for get\+Radius() function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Obstacle\+Map\+Test} & -\/ name of the test suite \\
+\hline
+{\em Get\+Radius\+Test} & -\/ name of the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+\index{Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Obstacle\+Map\+Test, Create\+Rectangles\+Test)}{TEST(ObstacleMapTest, CreateRectanglesTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Obstacle\+Map\+Test}]{, }
+\item[{Create\+Rectangles\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_obstacle_map_test_8cpp_aedbc2811c604dc8050213a700d8d26c2}{}\label{_obstacle_map_test_8cpp_aedbc2811c604dc8050213a700d8d26c2}
+
+
+Test for create\+Rectangles() function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Obstacle\+Map\+Test} & -\/ name of the test suite \\
+\hline
+{\em Create\+Rectangle\+Test} & -\/ name of the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Checking whether the coordinates are rectangles \index{Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Obstacle\+Map\+Test, Create\+Tables\+Test)}{TEST(ObstacleMapTest, CreateTablesTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Obstacle\+Map\+Test}]{, }
+\item[{Create\+Tables\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_obstacle_map_test_8cpp_a3998eed8f531690f0e6c4145e344c78e}{}\label{_obstacle_map_test_8cpp_a3998eed8f531690f0e6c4145e344c78e}
+
+
+Test for create\+Tables() function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Obstacle\+Map\+Test} & -\/ name of the test suite \\
+\hline
+{\em Create\+Tables\+Test} & -\/ name of the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Checking whether the coordinates are tables \index{Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Obstacle\+Map\+Test, Create\+Circles\+Test)}{TEST(ObstacleMapTest, CreateCirclesTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Obstacle\+Map\+Test}]{, }
+\item[{Create\+Circles\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_obstacle_map_test_8cpp_a609dffea559a9d81cd55453136fd7a30}{}\label{_obstacle_map_test_8cpp_a609dffea559a9d81cd55453136fd7a30}
+
+
+Test for create\+Circles() function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Obstacle\+Map\+Test} & -\/ name of the test suite \\
+\hline
+{\em Create\+Circles\+Test} & -\/ name of the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Checking whether the coordinates are circles \index{Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Obstacle\+Map\+Test, Draw\+Boundary\+Test)}{TEST(ObstacleMapTest, DrawBoundaryTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Obstacle\+Map\+Test}]{, }
+\item[{Draw\+Boundary\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_obstacle_map_test_8cpp_a93e8a31f9279507eddc7d1bc1459ae87}{}\label{_obstacle_map_test_8cpp_a93e8a31f9279507eddc7d1bc1459ae87}
+
+
+Test for draw\+Boundary() function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Obstacle\+Map\+Test} & -\/ name of the test suite \\
+\hline
+{\em Draw\+Boundary\+Test} & -\/ name of the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Checking whether the coordinates are boundaries \index{Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}!T\+E\+ST@{T\+E\+ST}}
+\index{T\+E\+ST@{T\+E\+ST}!Obstacle\+Map\+Test.\+cpp@{Obstacle\+Map\+Test.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T(\+Obstacle\+Map\+Test, Create\+Map\+Test)}{TEST(ObstacleMapTest, CreateMapTest)}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+ST (
+\begin{DoxyParamCaption}
+\item[{Obstacle\+Map\+Test}]{, }
+\item[{Create\+Map\+Test}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{_obstacle_map_test_8cpp_aef0f55b85777bc9a1098059cf658ae5f}{}\label{_obstacle_map_test_8cpp_aef0f55b85777bc9a1098059cf658ae5f}
+
+
+Test for create\+Map() function. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Obstacle\+Map\+Test} & -\/ name of the test suite \\
+\hline
+{\em Create\+Map\+Test} & -\/ name of the test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none 
+\end{DoxyReturn}
+Checking whether the coordinates are defined as obstacles 

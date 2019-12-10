@@ -1,0 +1,265 @@
+\hypertarget{class_a_star}{}\section{A\+Star Class Reference}
+\label{class_a_star}\index{A\+Star@{A\+Star}}
+
+
+\hyperlink{class_a_star}{A\+Star} class Class for the implementation of A$\ast$ algorithm.  
+
+
+
+
+{\ttfamily \#include $<$A\+Star.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_a_star_ab7cfaf9e1662f45f5fdce245d28c4508}{A\+Star} ()
+\begin{DoxyCompactList}\small\item\em Default constructor of \hyperlink{class_a_star}{A\+Star} class. \end{DoxyCompactList}\item 
+\hyperlink{class_a_star_ab105ea1d89edefbd8723b0f36652f1aa}{A\+Star} (double rpm1\+Val, double rpm2\+Val, double dt\+Val)
+\begin{DoxyCompactList}\small\item\em Constructor of \hyperlink{class_a_star}{A\+Star} class. \end{DoxyCompactList}\item 
+\hyperlink{class_a_star_ad246668465621db8818bbe3511fa4ae7}{$\sim$\+A\+Star} ()
+\begin{DoxyCompactList}\small\item\em Destructor of \hyperlink{class_a_star}{A\+Star} class. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \hyperlink{class_a_star_a8fce98f22c2687fa0a214faf9090329c}{back\+Track} (std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$$>$$>$ back\+List)
+\begin{DoxyCompactList}\small\item\em backtrack -\/ Function which implements the backtracking \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \hyperlink{class_a_star_a6c0e58da70d0dd3402d2fd4e4e3feeec}{motion\+Model} ()
+\begin{DoxyCompactList}\small\item\em motion\+Model -\/ Function which describes the motion of robot \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$ $>$ $>$ \hyperlink{class_a_star_a48912f3be5ce68c45b07d833ff707cbb}{a\+Star} (std\+::vector$<$ double $>$ start\+Point, std\+::vector$<$ double $>$ goal\+Point)
+\begin{DoxyCompactList}\small\item\em motion\+Model -\/ Function which implements the A$\ast$ algorithm \end{DoxyCompactList}\item 
+void \hyperlink{class_a_star_abd6f71ed1d4456a99bac7cf872ac7838}{ros\+Turtle} (std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$$>$$>$ ros\+Inputs)
+\begin{DoxyCompactList}\small\item\em motion\+Model -\/ Function for publlishing to R\+OS topic \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{class_a_star}{A\+Star} class Class for the implementation of A$\ast$ algorithm. 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{A\+Star@{A\+Star}!A\+Star@{A\+Star}}
+\index{A\+Star@{A\+Star}!A\+Star@{A\+Star}}
+\subsubsection[{\texorpdfstring{A\+Star()}{AStar()}}]{\setlength{\rightskip}{0pt plus 5cm}A\+Star\+::\+A\+Star (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_star_ab7cfaf9e1662f45f5fdce245d28c4508}{}\label{class_a_star_ab7cfaf9e1662f45f5fdce245d28c4508}
+
+
+Default constructor of \hyperlink{class_a_star}{A\+Star} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none Initializes rpm1,rpm2 and dt to zero 
+\end{DoxyReturn}
+\index{A\+Star@{A\+Star}!A\+Star@{A\+Star}}
+\index{A\+Star@{A\+Star}!A\+Star@{A\+Star}}
+\subsubsection[{\texorpdfstring{A\+Star(double rpm1\+Val, double rpm2\+Val, double dt\+Val)}{AStar(double rpm1Val, double rpm2Val, double dtVal)}}]{\setlength{\rightskip}{0pt plus 5cm}A\+Star\+::\+A\+Star (
+\begin{DoxyParamCaption}
+\item[{double}]{rpm1\+Val, }
+\item[{double}]{rpm2\+Val, }
+\item[{double}]{dt\+Val}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_star_ab105ea1d89edefbd8723b0f36652f1aa}{}\label{class_a_star_ab105ea1d89edefbd8723b0f36652f1aa}
+
+
+Constructor of \hyperlink{class_a_star}{A\+Star} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rpm1\+Val} & of type double \\
+\hline
+{\em rpm2\+Val} & of type double \\
+\hline
+{\em dt\+Val} & of type double \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none Initializes rpm1, rpm2 and dt to the values passed to the constructor 
+\end{DoxyReturn}
+Setting the values of member variables \index{A\+Star@{A\+Star}!````~A\+Star@{$\sim$\+A\+Star}}
+\index{````~A\+Star@{$\sim$\+A\+Star}!A\+Star@{A\+Star}}
+\subsubsection[{\texorpdfstring{$\sim$\+A\+Star()}{~AStar()}}]{\setlength{\rightskip}{0pt plus 5cm}A\+Star\+::$\sim$\+A\+Star (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_star_ad246668465621db8818bbe3511fa4ae7}{}\label{class_a_star_ad246668465621db8818bbe3511fa4ae7}
+
+
+Destructor of \hyperlink{class_a_star}{A\+Star} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none Destroys class objects 
+\end{DoxyReturn}
+
+
+\subsection{Member Function Documentation}
+\index{A\+Star@{A\+Star}!a\+Star@{a\+Star}}
+\index{a\+Star@{a\+Star}!A\+Star@{A\+Star}}
+\subsubsection[{\texorpdfstring{a\+Star(std\+::vector$<$ double $>$ start\+Point, std\+::vector$<$ double $>$ goal\+Point)}{aStar(std::vector< double > startPoint, std::vector< double > goalPoint)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf nest\+Vector} A\+Star\+::a\+Star (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ double $>$}]{start\+Point, }
+\item[{std\+::vector$<$ double $>$}]{goal\+Point}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_star_a48912f3be5ce68c45b07d833ff707cbb}{}\label{class_a_star_a48912f3be5ce68c45b07d833ff707cbb}
+
+
+motion\+Model -\/ Function which implements the A$\ast$ algorithm 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start\+Point} & -\/ coordinates of start\+Point \\
+\hline
+{\em goal\+Point} & -\/ coordinates of goal\+Point \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+velocities and angles of nodes in backtrack list 
+\end{DoxyReturn}
+defining struct to implement the priority queue
+
+declaring the variables for storing unvisited and visited nodes
+
+defining the start\+Node
+
+defining the end\+Node
+
+setting the radius of robot
+
+Creating cost\+Map for node exploration
+
+storing the node with least cost in current\+Node
+
+removing the node from unvisited
+
+adding the node in visited
+
+defining the threshold for reaching destination
+
+Checking whether the destination is reached
+
+calling the \hyperlink{class_a_star_a6c0e58da70d0dd3402d2fd4e4e3feeec}{motion\+Model()} function
+
+Exploring all the neighbor nodes
+
+setting the member variables of nodes through setters
+
+setting the member variables of nodes through setters
+
+setting the member variables of nodes through setters
+
+setting the member variables of nodes through setters
+
+setting the member variables of nodes through setters
+
+setting the member variables of nodes through setters
+
+checking if the explored node is within boundaries
+
+checking if the explored node is not hitting the obstacle
+
+updating the cost\+Map
+
+Adding the explored node to unvisited \index{A\+Star@{A\+Star}!back\+Track@{back\+Track}}
+\index{back\+Track@{back\+Track}!A\+Star@{A\+Star}}
+\subsubsection[{\texorpdfstring{back\+Track(std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$$>$$>$ back\+List)}{backTrack(std::vector< std::vector< std::vector< double >>> backList)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf nest\+Vector} A\+Star\+::back\+Track (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$$>$$>$}]{back\+List}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_star_a8fce98f22c2687fa0a214faf9090329c}{}\label{class_a_star_a8fce98f22c2687fa0a214faf9090329c}
+
+
+backtrack -\/ Function which implements the backtracking 
+
+
+\begin{DoxyParams}{Parameters}
+{\em back\+List} & -\/ contains current\+Node, parent\+Node, velocity and angle for nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+velocity and angles for nodes in the obtained path 
+\end{DoxyReturn}
+storing the current\+Pos of node
+
+appending velocity and angle
+
+getting the parent from back\+List
+
+checking if parent found
+
+appending velocity and angle in ros\+Inputs
+
+reversing the data stored in path and ros\+Inputs \index{A\+Star@{A\+Star}!motion\+Model@{motion\+Model}}
+\index{motion\+Model@{motion\+Model}!A\+Star@{A\+Star}}
+\subsubsection[{\texorpdfstring{motion\+Model()}{motionModel()}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ std\+::vector$<$ double $>$ $>$ A\+Star\+::motion\+Model (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_star_a6c0e58da70d0dd3402d2fd4e4e3feeec}{}\label{class_a_star_a6c0e58da70d0dd3402d2fd4e4e3feeec}
+
+
+motion\+Model -\/ Function which describes the motion of robot 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::vector$<$double$>$$>$ -\/ action states for a node 
+\end{DoxyReturn}
+defining the distance between wheels of Turtlebot3
+
+defining the radius of wheels of Turtlebot3
+
+8 possible action states for a node based on rpm\textquotesingle{}s
+
+defining ur, ul and thetadot based on differential drive model
+
+calculating change in angle
+
+setting the dx for node
+
+setting the dy for node
+
+setting the cost
+
+setting velocity magnitude \index{A\+Star@{A\+Star}!ros\+Turtle@{ros\+Turtle}}
+\index{ros\+Turtle@{ros\+Turtle}!A\+Star@{A\+Star}}
+\subsubsection[{\texorpdfstring{ros\+Turtle(std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$$>$$>$ ros\+Inputs)}{rosTurtle(std::vector< std::vector< std::vector< double >>> rosInputs)}}]{\setlength{\rightskip}{0pt plus 5cm}void A\+Star\+::ros\+Turtle (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ double $>$$>$$>$}]{ros\+Inputs}
+\end{DoxyParamCaption}
+)}\hypertarget{class_a_star_abd6f71ed1d4456a99bac7cf872ac7838}{}\label{class_a_star_abd6f71ed1d4456a99bac7cf872ac7838}
+
+
+motion\+Model -\/ Function for publlishing to R\+OS topic 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ros\+Inputs} & -\/ variable having velocities and angles from back\+Track function \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+none
+\end{DoxyReturn}
+This function creates a R\+OS node, which publishes the velocities and angles to the cmd\+\_\+vel topic, which Turtlebot uses to navigate on the path returned by A$\ast$ algorithm Defining the publisher for cmd\+\_\+vel topic
+
+Declaring the object of geometry\+\_\+msgs\+::\+Twist
+
+setting the publishing rate to 10\+HZ
+
+stop the robot if goal is reached
+
+Setting the linear and angular velocities
+
+Publishing the msg on topic 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{_a_star_8hpp}{A\+Star.\+hpp}\item 
+src/\hyperlink{_a_star_8cpp}{A\+Star.\+cpp}\end{DoxyCompactItemize}
