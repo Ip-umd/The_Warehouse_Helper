@@ -7,9 +7,15 @@
 
 ## Project Overview
 
-We have developed a Warehouse Helper robot for Acme Robotics. The Turtlebot3, which we have used  as a base robot, uses a path-planning algorithm(A* algorithm) to navigate in a predefined map of warehouse. It then creates an optimal path from start station to goal station, while avoiding obstacles.
+This repository is created as the part of ENPM808x Final Project to build a Warehouse Helper robot for ACME Robotics, which navigates through a known environment using path-planning module. The software implements autonomous navigation and mapping capability using ROS nodes and the simulated turtlebot platform.
 
-We also have implemented the funtionality that robot can navigate to intermediate stations between start station and goal location.
+Robots are becoming an integral component of our everyday life and being deployed in a number of processes over a wide range of applications. Such robots are required to find safe and feasible routes to navigate effectively in the environment.
+
+The Turtlebot3, which we have used  as a base robot, uses a path-planning algorithm(A* algorithm) to navigate in a predefined map of warehouse. It then creates an optimal path from start station to goal station, while avoiding obstacles.
+
+We also have implemented the funtionality that robot can navigate to intermediate stations between start station and goal location. We have considered four stations A,B,C and D. The user can given start point as A or B or C and end point as D. When given the start point as A and end point as D, the robot goes from A to B, B to C and then C to D. Accordingly, the same follows when given other start points. 
+
+The completeion of task, will be shown by rotating/spinning the TurtleBot3 continuously at the goal station.
 
 
 ## Authors
@@ -35,6 +41,12 @@ https://docs.google.com/spreadsheets/d/1t4cP0wDVoSsd_CHPAsWeQVUyKAmTfhGT0WIE1Eti
 https://docs.google.com/document/d/1rJrAD-c7H2RfS4iTaWQ11ydM7skeF1xUm2HMC1adbkw/edit?usp=sharing
 
 ## Presentation Slides and Demo Video:
+
+The presentation slides are here in this link:
+https://docs.google.com/presentation/d/1FcDADo-DJSLA1EpY_DcrcfGqXIMy3PhQI1eMom1GZ24/edit?usp=sharing
+
+The DEMO video can be seen here: 
+https://drive.google.com/file/d/16N9Nwl91wUtSwOp1dceJGjpwXtKHfuuX/view?usp=sharing
 
 
 
@@ -112,13 +124,36 @@ To run the program first open a new terminal window and run following commands.
 $ rosclean purge
 $ cd <path to catkin_ws>
 $ source devel/setup.bash
-$ roslaunch The_Warehouse_Helper warehouseHelperTest.launch
+$ roslaunch The_Warehouse_Helper warehouseHelperTest.launch x_pos:=-0.35 y_pos:=3.95
 ```
 >[NOTE: **Make sure to run the source devel/setup.bash command evertime you want to run the package** otherwise the launch file won't detect the package. Also you will see **warnings** which our package will output, on the screen till gazebo is launched completely]
+
+This command will ask for user input in following way:
+```
+ Enter the start station :
+```
+Here, type A 
+
+then, following input will appear.
+```
+ Enter the goal station:
+```
+Here, type D.
+
+
+If the start station is B, and goal station is D, then replace x_pos and y_pos value in roslaunch command by x_pos:=1.45 y_pos:=-0.55
+
+If the start station is C, and goal station is D, then replace x_pos and y_pos value in roslaunch command by x_pos:=-0.95 y_pos:=1.25
+
 
 
 ## Instructions to run ROS Unit-Tests 
 The tests are written using gtest and rostest. Close all the running processes before executing the commands below to run the rostest.
+
+Following are the levels of tests are used in the package
+- Level 1: unit tests
+- Level 2: integration tests:
+
 
 - main.cpp
 - AStarTest.cpp
@@ -152,25 +187,5 @@ After installation run following command to open the doxywizard wherein you can 
 doxywizard
 ```
 
-## Working with Eclipse IDE
-
-## Installation
-
-In your Eclipse workspace directory (or create a new one), checkout the repo (and submodules)
-
-```
-mkdir -p ~/workspace
-cd ~/workspace
-git clone https://github.com/Ip-umd/The_Warehouse_Helper.git
-```
-
-In your work directory, use cmake to create an Eclipse project for an [out-of-source build] of The_Warehouse_Helper
-
-```
-cd ~/workspace
-mkdir -p The_Warehouse_Helper_Eclipse
-cd The_Warehouse_Helper_Eclipse
-cmake -G "Eclipse CDT4 - Unix Makefiles" -D CMAKE_BUILD_TYPE=Debug -D CMAKE_ECLIPSE_VERSION=4.7.0 -D CMAKE_CXX_COMPILER_ARG1=-std=c++14 ../The_Warehouse_Helper/
-```
 
 
